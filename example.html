@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Delayed Change example</title>
+  <style>
+  body, input {font-family:'Gill Sans MT', Helvetica, Arial, sans-serif;font-size:13px;}
+  section {display:block;max-width:800px;width:75%;margin:0 auto;margin-top:3em;}
+  form {float:left;width:48%;margin:0;padding:0;}
+  form input {width:100%;}
+  article {display:block;float:left;width:50%;margin:0;padding:0;}
+  article p, article pre {margin:0 1em 1em;}
+  article pre {font-family:"AnonymousPro", Menlo, "Courier New", monospace;font-size:13px;color:#555;}
+  </style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="jquery.delayedChange.min.js"></script>
+  <script>
+    // setup our input to update the "#value" element
+    $(document).ready(function(){
+      $('#myInput').delayedChange(function(){
+        $('#value').html($(this).val());
+      });
+    });
+  </script>
+</head>
+<body>
+  <section>
+    <header><h1>Delayed Change</h1></header>
+    <form action="" method="get">
+      <input type="text" name="myInput" value="" id="myInput" placeholder="Enter a value" />
+    </form>
+    <article>
+      <p>Type a value in the text field. After a small delay, that value will appear here:</p>
+      <pre id="value"></pre>
+    </article>
+  </section>
+</body>
+</html>
